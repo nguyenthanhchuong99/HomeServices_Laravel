@@ -25,6 +25,9 @@ class AdminAddServiceComponent extends Component
     public $inclusion;
     public $exclusion;
 
+    public $newthumbnail;
+    public $newimage;
+
     public function generateSlug()
     {
         $this->slug = Str::slug($this->name, '-');
