@@ -38,8 +38,8 @@ class AdminAddServiceComponent extends Component
             'tagline' => 'required',
             'service_category_id' => 'required',
             'price' => 'required',
-            'image' => 'required|mimes: jpeg,png',
-            'thumbnail' => 'required|mimes: jpeg,png',
+            'image' => 'required|mimes: jpeg,png,jpg',
+            'thumbnail' => 'required|mimes: jpeg,png,jpg',
             'description' => 'required',
             'inclusion' => 'required',
             'exclusion' => 'required'
@@ -54,8 +54,8 @@ class AdminAddServiceComponent extends Component
             'tagline' => 'required',
             'service_category_id' => 'required',
             'price' => 'required',
-            'image' => 'required|mimes: jpeg,png',
-            'thumbnail' => 'required|mimes: jpeg,png',
+            'image' => 'required|mimes: jpeg,png,jpg',
+            'thumbnail' => 'required|mimes: jpeg,png,jpg',
             'description' => 'required',
             'inclusion' => 'required',
             'exclusion' => 'required'
@@ -73,14 +73,14 @@ class AdminAddServiceComponent extends Component
         $service->description = $this->description;
         $service->inclusion = str_replace("\n", '|', trim($this->inclusion));
         $service->exclusion = str_replace("\n", '|', trim($this->exclusion));
-        $imageName = Carbon::now()->timestamp . '.' . $this->thumbnail->extensions();
+
+        $imageName = Carbon::now()->timestamp . '.' . $this->thumbnail->extension();
         $this->thumbnail->storeAs('services/thumbnails', $imageName);
-        $service->thumbnail = $this->imageName;
+        $service->thumbnail = $imageName;
 
-        $imageName2 = Carbon::now()->timestamp . '.' . $this->image->extensions();
+        $imageName2 = Carbon::now()->timestamp . '.' . $this->image->extension();
         $this->image->storeAs('services', $imageName2);
-
-        $service->image = $this->imageName2;
+        $service->image = $imageName2;
 
         $service->save();
         session()->flash('message', 'Service has been created succsessfully!');
