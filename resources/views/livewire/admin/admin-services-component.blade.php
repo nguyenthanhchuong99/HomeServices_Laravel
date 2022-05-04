@@ -74,10 +74,9 @@
                                                     <td>{{ $service->created_at }}</td>
                                                     <td>
                                                         <a href="{{ route('admin.edit_service',['service_slug'=>$service->slug]) }}"><i class="fa fa-edit fa-2x text-info"></i></a>
-                                                        <a href="#"   style="margin-left: 10px"><i class="fa fa-times fa-2x text-danger"></i></a>
+                                                        <a href="#" onclick="cofirm('Are you sure, you want to delete this service?') || event.stopImmediatePropagation()" wire:click.prevent="deleteService({{ $service->id }})"  style="margin-left: 10px"><i class="fa fa-times fa-2x text-danger"></i></a>
                                                     </td>
                                                 </tr>
-                                                
                                             @endforeach
                                         </tbody>
                                     </table>
