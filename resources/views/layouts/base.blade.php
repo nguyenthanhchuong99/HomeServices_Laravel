@@ -38,12 +38,7 @@
                                         class="fa fa-map-marker"></i> Da Nang, Viet Nam</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-6">
-                        <ul class="visible-md visible-lg text-right">
-                            <li><i class="fa fa-comment"></i> Live Chat</li>
-                            <li><a href="index.php/changelocation.html"><i class="fa fa-map-marker"></i> Da Nang, Viet Nam</a></li>
-                        </ul>
-                    </div>
+                    @livewire('location-component')
                 </div>
             </div>
         </div>
@@ -126,6 +121,7 @@
                                 <li class="login-form"> <a href="#" title="Register">My Account (S Provider)</a>
                                     <ul class="drop-down one-column hover-fade">
                                         <li><a href="{{ route('sprovider.dashboard') }}">Dashboard</a></li>
+                                        <li><a href="{{ route('sprovider.profile') }}">Profile</a></li>
                                         <li><a href="{{ route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                                     </ul>
                                 </li>
