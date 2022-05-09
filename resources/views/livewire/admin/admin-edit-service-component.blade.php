@@ -44,6 +44,7 @@
                                                 @error('name') <p class="text-danger">{{ $message }}</p> @enderror
                                             </div>
                                         </div>
+                                       
                                         <div class="form-group">
                                             <label for="slug" class="control-label col-sm-3">Slug:</label>
                                             <div class="col-sm-9">
@@ -52,6 +53,7 @@
 
                                             </div>
                                         </div>
+                                       
                                         <div class="form-group">
                                             <label for="slug" class="control-label col-sm-3">Tagline:</label>
                                             <div class="col-sm-9">
@@ -59,6 +61,7 @@
                                                 @error('tagline') <p class="text-danger">{{ $message }}</p> @enderror
                                             </div>
                                         </div>
+                                       
                                         <div class="form-group">
                                             <label for="slug" class="control-label col-sm-3">Service Category:</label>
                                             <div class="col-sm-9">
@@ -72,6 +75,7 @@
                                                 @error('service_category_id') <p class="text-danger">{{ $message }}</p> @enderror
                                             </div>
                                         </div>
+                                       
                                         <div class="form-group">
                                             <label for="slug" class="control-label col-sm-3">Price:</label>
                                             <div class="col-sm-9">
@@ -79,6 +83,7 @@
                                                 @error('price') <p class="text-danger">{{ $message }}</p> @enderror
                                             </div>
                                         </div>
+                                       
                                         <div class="form-group">
                                             <label for="slug" class="control-label col-sm-3">Discount:</label>
                                             <div class="col-sm-9">
@@ -86,8 +91,9 @@
                                                 @error('discount') <p class="text-danger">{{ $message }}</p> @enderror
                                             </div>
                                         </div>
+                                      
                                         <div class="form-group">
-                                            <label for="slug" class="control-label col-sm-3">Discount:</label>
+                                            <label for="slug" class="control-label col-sm-3">Discount Type:</label>
                                             <div class="col-sm-9">
                                                 <select class="form_control" wire:model="discount_type">
                                                      <option value="">Select Service Category</option>
@@ -97,6 +103,17 @@
                                                 @error('discount_type') <p class="text-danger">{{ $message }}</p> @enderror
                                             </div>
                                         </div>
+
+                                        <div class="form-group">
+                                            <label for="slug" class="control-label col-sm-3">Featured:</label>
+                                            <div class="col-sm-9">
+                                                <select class="form_control" wire:model="featured">
+                                                     <option value="0">No</option>
+                                                     <option value="1">Yes</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
                                         <div class="form-group" >
                                             <label for="slug" class="control-label col-sm-3">Description:</label>
                                             <div class="col-sm-9">
@@ -104,6 +121,7 @@
                                                 @error('description') <p class="text-danger">{{ $message }}</p> @enderror
                                             </div>
                                         </div>
+                                      
                                         <div class="form-group">
                                             <label for="slug" class="control-label col-sm-3">Inclusion:</label>
                                             <div class="col-sm-9">
@@ -111,6 +129,7 @@
                                                 @error('inclusion') <p class="text-danger">{{ $message }}</p> @enderror
                                             </div>
                                         </div>
+                                       
                                         <div class="form-group">
                                             <label for="slug" class="control-label col-sm-3">Exclusion:</label>
                                             <div class="col-sm-9">
@@ -118,6 +137,7 @@
                                                 @error('exclusion') <p class="text-danger">{{ $message }}</p> @enderror
                                             </div>
                                         </div>
+                                       
                                         <div class="form-group">
                                             <label for="slug" class="control-label col-sm-3">Thumbnail:</label>
                                             <div class="col-sm-9">
@@ -130,6 +150,7 @@
                                                 @endif
                                             </div>
                                         </div>
+                                       
                                         <div class="form-group">
                                             <label for="slug" class="control-label col-sm-3">Image:</label>
                                             <div class="col-sm-9">

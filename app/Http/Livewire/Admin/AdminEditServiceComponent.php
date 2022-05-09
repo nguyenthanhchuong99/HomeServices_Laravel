@@ -29,6 +29,27 @@ class AdminEditServiceComponent extends Component
     public $newimage;
     public $service_id;
 
+    public $featured;
+
+    public function mount($service_slug)
+    {
+        $service = Service::where('slug', $service_slug)->first();
+        $this->service_id = $service->id;
+        $this->name = $service->name;
+        $this->slug = $service->slug;
+        $this->tagline = $service->tagline;
+        $this->service_category_id = $service->service_category_id;
+        $this->price = $service->price;
+        $this->discount = $service->discount;
+        $this->discount_type = $service->discount_type;
+        $this->featured = $service->featured;
+        $this->image = $service->image;
+        $this->thumbnail = $service->thumbnail;
+        $this->description = $service->description;
+        $this->inclusion = str_replace("|", "\n", $service->inclusion);
+        $this->exclusion = str_replace("|", "\n", $service->exclusion);
+    }
+
 
     public function generateSlug()
     {
@@ -91,6 +112,7 @@ class AdminEditServiceComponent extends Component
         $service->price = $this->price;
         $service->discount = $this->discount;
         $service->discount_type = $this->discount_type;
+        $service->featured = $this->featured;
         $service->description = $this->description;
         $service->inclusion = str_replace("\n", '|', trim($this->inclusion));
         $service->exclusion = str_replace("\n", '|', trim($this->exclusion));
@@ -116,23 +138,7 @@ class AdminEditServiceComponent extends Component
         session()->flash('message', 'Service has been updated succsessfully!');
     }
 
-    public function mount($service_slug)
-    {
-        $service = Service::where('slug', $service_slug)->first();
-        $this->service_id = $service->id;
-        $this->name = $service->name;
-        $this->slug = $service->slug;
-        $this->tagline = $service->tagline;
-        $this->service_category_id = $service->service_category_id;
-        $this->price = $service->price;
-        $this->discount = $service->discount;
-        $this->discount_type = $service->discount_type;
-        $this->image = $service->image;
-        $this->thumbnail = $service->thumbnail;
-        $this->description = $service->description;
-        $this->inclusion = str_replace("|", "\n", $service->inclusion);
-        $this->exclusion = str_replace("|", "\n", $service->exclusion);
-    }
+
 
     public function render()
     {
